@@ -1,0 +1,10 @@
+agm-map {
+    height: 50%;
+  }
+ul{
+    float: right;
+    align-content: space-around;
+}
+li{
+    border: 1px solid black;
+}

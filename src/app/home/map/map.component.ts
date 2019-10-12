@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LocationsService } from '../locations.service';
+
 
 @Component({
   selector: 'app-map',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private locService: LocationsService) { }
+  a:number;
   ngOnInit() {
+    
+    this.locService.getElevation(23.180,77.417)
   }
-
+  lat = 23.180
+  lng =  77.417
 }

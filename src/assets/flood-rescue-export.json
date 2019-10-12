@@ -1,0 +1,19 @@
+{
+  "Bhopal" : {
+    "Bima Kunj Parisar" : {
+      "latitude" : 23.1801939,
+      "longitude" : 77.4173755,
+      "status" : "Not Applicable"
+    },
+    "Sagar Estates" : {
+      "latitude" : 23.2773382,
+      "longitude" : 77.4582231,
+      "status" : "Not Applicable"
+    },
+    "Zababit Lines" : {
+      "latitude" : 23.2534713,
+      "longitude" : 77.4132571,
+      "status" : "Not Applicable"
+    }
+  }
+}
