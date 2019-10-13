@@ -15,6 +15,8 @@ export class MapComponent implements OnInit {
     
     this.locService.getElevation(23.180,77.417)
   }
-  lat = 23.180
-  lng =  77.417
+  locations=this.locService.locations;
+  lat=this.locations[0]['latitude']
+  lng=this.locations[0]['longitude']
+
 }

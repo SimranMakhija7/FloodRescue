@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 import {  HttpClient } from '@angular/common/http';
-import myLocation from '../location.model';
-import { async } from 'q';
-import { observable, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,25 +7,29 @@ import { observable, Observable } from 'rxjs';
 export class LocationsService {
 
   locations=[{
-    Bhopal : {
-      BimaKunjParisar : {
+        name:"Bima Kunj Parisar",
         latitude : 23.1801939,
         longitude : 77.4173755,
-        status : "Not Applicable"
+        elevation: 509,
+        status : "Urgent help required",
       },
-      SagarEstates : {
+      {
+        name:"Sagar Estates",
         latitude : 23.2773382,
         longitude : 77.4582231,
-        status : "Not Applicable"
+        elevation:512,
+        status : "Help required"
       },
-      ZababitLines : {
+      {
+        name: "Zababit Lines",
         latitude : 23.2534713,
         longitude : 77.4132571,
-        status : "Not Applicable"
+        elevation:469,
+        status : "Help required"
       }
-    }
-  }
-]
+    
+    ]
+
 
   constructor(private http:HttpClient) {   }
   searchStr='Bhopal'
@@ -38,7 +39,16 @@ export class LocationsService {
     return this.locations;
   }
   
-
+  sortLocations(){
+    // this.locations[this.searchStr].map((obj)=>{
+    //   obj['elevation']=this.fetchElevation(obj.latitude,obj.longitude).subscribe(res=>{
+    //       return (res.valueOf()['resourceSets'][0]['resources'][0]['elevations'][0])
+    //   })
+    // });
+    let sortedLoc=this.locations[this.searchStr].sort(("elevation"))
+    console.log(sortedLoc)
+    
+  }
   
 
   fetchElevation(lat:number, long:number){
@@ -46,13 +56,12 @@ export class LocationsService {
     let obs=this.http.get(url);
     return this.http.get(url)
   }
-  async getElevation(lat:number, long:number){
+  getElevation(lat:number, long:number){
     let elevation:number=0;
     this.fetchElevation(lat,long).subscribe((res)=>{
-      elevation=(res.valueOf()['resourceSets'][0]['resources'][0]['elevations'][0])
-      console.log(elevation)
+      
     })
-           
+    return elevation;       
   }
   
 

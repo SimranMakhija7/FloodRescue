@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocationsService } from '../locations.service';
 
 @Component({
   selector: 'app-list',
@@ -6,16 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  locations=[
-  {name:"ABC",status:"Critical" },
-  {name:"ABC",status:"Critical" },
-  {name:"ABC",status:"Critical" },
-  {name:"ABC",status:"Critical" },
-  {name:"ABC",status:"Critical" },
-  ];
-  constructor() { }
+  
+  constructor(private locService:LocationsService) { }
 
   ngOnInit() {
+
   }
+  locations=this.locService.locations;
+  
 
 }
